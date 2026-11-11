@@ -46,8 +46,8 @@
 
 ### 2. 코드 업로드 확인
 GitHub 저장소에 프로젝트 코드가 업로드된 화면입니다.
-<img width="2356" height="855" alt="스크린샷 2026-11-11 160656" src="https://github.com/user-attachments/assets/c86586b3-83ea-48d0-8d3a-b7d1bcefc1ad" />
-<img width="427" height="595" alt="스크린샷 2026-11-11 163228" src="https://github.com/user-attachments/assets/0992dd99-1150-4f10-adc3-501f15330f4d" />
+
+
 
 
 ## 저장소 복제(Clone) 확인
@@ -57,14 +57,7 @@ GitHub 저장소에 프로젝트 코드가 업로드된 화면입니다.
 
 ### 2. 복제된 폴더 확인
 아래는 복제 후 로컬 폴더에서 파일이 정상적으로 생성된 화면입니다.
-<img width="1008" height="86" alt="스크린샷 2026-11-11 143658" src="https://github.com/user-attachments/assets/ad4cee6a-35c1-4509-97b2-aa4876d33b61" />
 
-<img width="1290" height="372" alt="스크린샷 2026-11-11 143715" src="https://github.com/user-attachments/assets/9df61ce0-239f-45f8-93e8-a1abe804774b" />
-<img width="2356" height="855" alt="스크린샷 2026-11-11 160656" src="https://github.com/user-attachments/assets/bf8ec2ae-3891-4113-b80e-8c32ab2365b2" />
-<img width="427" height="595" alt="스크린샷 2026-11-11 163228" src="https://github.com/user-attachments/assets/7c1ecd79-4758-4c73-ba5c-68bf0ee818c0" />
-<img width="1290" height="372" alt="스크린샷 2026-11-11 143715" src="https://github.com/user-attachments/assets/ea7aca6a-52b4-41ff-9e21-8ce8c82231b6" />
-<img width="2356" height="855" alt="스크린샷 2026-11-11 160656" src="https://github.com/user-attachments/assets/653c16cf-5db6-4904-82d6-fe9596a91f9a" />
-<img width="427" height="595" alt="스크린샷 2026-11-11 163228" src="https://github.com/user-attachments/assets/0f02fe61-8497-4127-b67a-4b140fa283eb" />
 
 
 ## 프로그램 실행 및 기능 테스트
