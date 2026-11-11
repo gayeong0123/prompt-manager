@@ -46,6 +46,7 @@
 
 ### 2. 코드 업로드 확인
 GitHub 저장소에 프로젝트 코드가 업로드된 화면입니다.
+<img width="1345" height="709" alt="image" src="https://github.com/user-attachments/assets/e067c51d-fb76-4bbd-b49f-1f0d71a290ae" />
 
 
 ## 저장소 복제(Clone) 확인
