@@ -36,3 +36,21 @@
 확인 결과:
 - `user.name=본인계정명`
 - `user.email=ka***@gmail.com`
+
+## GitHub 저장소 및 업로드 확인
+
+### 1. GitHub 저장소 URL
+- 저장소 주소: https://github.com/gayeong0123/prompt-manager.git
+
+### 2. 코드 업로드 확인
+GitHub 저장소에 프로젝트 코드가 업로드된 화면입니다.
+
+
+## 저장소 복제(Clone) 확인
+
+### 1. clone 실행 명령어
+실행 명령어: git clone https://github.com/gayeong0123/prompt-manager.git
+
+
+### 3. 복제된 폴더 확인
+아래는 복제 후 로컬 폴더에서 파일이 정상적으로 생성된 화면입니다.
