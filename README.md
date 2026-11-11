@@ -115,6 +115,8 @@ ID 입력 후 확인(y/n) 절차를 거쳐 삭제합니다.
     "tags": ["자기소개", "면접", "신입"]
   }
 ]
+
+폴더 구조
 prompt-manager/
 ├── app.py           
 ├── prompts.json
