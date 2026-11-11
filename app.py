@@ -42,14 +42,27 @@ def add_prompt(prompts):
     print("\n--- 새 프롬프트 추가 ---")
 
     title = input("제목: ").strip()
-    content = input("내용: ").strip()
-    category = input("카테고리: ").strip()
-    tags_input = input("태그(쉼표로 구분): ").strip()
 
-    if not title or not content:
-        print("제목과 내용은 반드시 입력해야 합니다.")
+    # ✅ 1. 빈 값 검사 (제목 입력 직후)
+    if not title:
+        print("제목은 반드시 입력해야 합니다.")
         return
 
+    # ✅ 2. 중복 검사 (제목 입력 직후)
+    for prompt in prompts:
+        if prompt.get("title", "").lower() == title.lower():
+            print(f"❌ '{title}' 제목이 이미 존재합니다. 다른 제목을 사용하세요.")
+            return
+
+    # ✅ 3. 나머지 입력은 검사 통과 후에 받기
+    content = input("내용: ").strip()
+
+    if not content:
+        print("내용은 반드시 입력해야 합니다.")
+        return
+
+    category = input("카테고리: ").strip()
+    tags_input = input("태그(쉼표로 구분): ").strip()
     tags = [tag.strip() for tag in tags_input.split(",") if tag.strip()]
 
     prompt = {
@@ -63,7 +76,7 @@ def add_prompt(prompts):
     prompts.append(prompt)
     save_prompts(prompts)
 
-    print("프롬프트가 저장되었습니다.")
+    print("✅ 프롬프트가 저장되었습니다.")
 
 
 def show_all_prompts(prompts):
@@ -212,6 +225,51 @@ def filter_by_category_or_tag(prompts):
     for prompt in results:
         print_prompt(prompt)
 
+def toggle_favorite(prompts):
+    print("\n--- 즐겨찾기 설정/해제 ---")
+
+    if not prompts:
+        print("저장된 프롬프트가 없습니다.")
+        return
+
+    show_all_prompts(prompts)
+
+    try:
+        prompt_id = int(input("즐겨찾기 설정/해제할 프롬프트 ID: ").strip())
+    except ValueError:
+        print("ID는 숫자로 입력해야 합니다.")
+        return
+
+    for prompt in prompts:
+        if prompt.get("id") == prompt_id:
+            # 현재 즐겨찾기 상태를 반대로 바꿈 (True→False, False→True)
+            current = prompt.get("favorite", False)
+            prompt["favorite"] = not current
+
+            if prompt["favorite"]:
+                print("⭐ 즐겨찾기에 추가되었습니다.")
+            else:
+                print("☆ 즐겨찾기가 해제되었습니다.")
+
+            save_prompts(prompts)
+            return
+
+    print("해당 ID의 프롬프트를 찾을 수 없습니다.")
+
+
+def show_favorites(prompts):
+    print("\n--- 즐겨찾기 목록 ---")
+
+    # favorite이 True인 것만 골라냄
+    favorites = [p for p in prompts if p.get("favorite", False)]
+
+    if not favorites:
+        print("즐겨찾기한 프롬프트가 없습니다.")
+        return
+
+    print(f"즐겨찾기 {len(favorites)}개:")
+    for prompt in favorites:
+        print_prompt(prompt)
 
 def export_to_txt(prompts):
     print("\n--- 텍스트 파일로 내보내기 ---")
@@ -251,16 +309,17 @@ def show_menu():
     print("4. 프롬프트 수정")
     print("5. 프롬프트 삭제")
     print("6. 카테고리/태그별 조회")
-    print("7. 텍스트 파일로 내보내기")
-    print("8. 종료")
-
+    print("7. 즐겨찾기 설정/해제")   
+    print("8. 즐겨찾기 목록 보기")   
+    print("9. 텍스트 파일로 내보내기") 
+    print("10. 종료")                
 
 def main():
     prompts = load_prompts()
 
     while True:
         show_menu()
-        choice = input("메뉴를 선택하세요 (1-8): ").strip()
+        choice = input("메뉴를 선택하세요 (1-10): ").strip()  # ← 1-10으로 변경
 
         if choice == "1":
             add_prompt(prompts)
@@ -275,12 +334,16 @@ def main():
         elif choice == "6":
             filter_by_category_or_tag(prompts)
         elif choice == "7":
-            export_to_txt(prompts)
+            toggle_favorite(prompts)    
         elif choice == "8":
+            show_favorites(prompts)     
+        elif choice == "9":
+            export_to_txt(prompts)      
+        elif choice == "10":
             print("프로그램을 종료합니다.")
             break
         else:
-            print("잘못된 입력입니다. 1부터 8까지의 숫자를 입력하세요.")
+            print("잘못된 입력입니다. 1부터 10까지의 숫자를 입력하세요.")  # ← 변경
 
 
 if __name__ == "__main__":
